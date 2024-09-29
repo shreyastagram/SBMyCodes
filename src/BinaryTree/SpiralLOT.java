@@ -2,7 +2,7 @@ package BinaryTree;
 import java.util.Scanner;
 public class SpiralLOT {
 
-    public static void main(String[] args){//main class where we initialize the tree and take size as input and
+    public static void main(String[] args){//
         //make an array of the elements of the tree and pass it to the tree through insertNode func.
         //Then we call method spiral to print the tree in spiral order.
         Trre tree=new Trre();
