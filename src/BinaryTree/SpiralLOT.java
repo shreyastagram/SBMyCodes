@@ -9,6 +9,7 @@ public class SpiralLOT {
         Trre tree=new Trre();
         Scanner sc=new Scanner(System.in);
         int size=sc.nextInt();
+        int data=sc.nextInt();
         if(size<=0){
             System.out.println("Size should be a positive integer");
         }
