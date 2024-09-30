@@ -8,13 +8,12 @@ public class searchBST {
         bst.root.right=new Node(6);
         bst.root.left.left=new Node(1);
         bst.root.left.right=new Node(3);
-        bst.root.right.left=new Node(5);
         bst.root.right.right=new Node(7);
         System.out.println("In-order Traversal is : ");
         bst.inOrderDFS(bst.root);
 
 
-        int key=5;
+        int key=6;
         System.out.print("\nKey to be searched is : "+key);
 
         if(bst.search(bst.root,key)){
@@ -23,14 +22,21 @@ public class searchBST {
         else{
             System.out.print("\nKey not found!");
             }
+        //updated the key to 9
         key=9;
         System.out.print("\nKey to be searched is : "+key);
         if(bst.search(bst.root,key)){
             System.out.print("\nKey found!");
         }
         else{
-            System.out.print("\nKey not found!");
+            System.out.print("\nKey not found!\n");
         }
+
+        key=5;
+        System.out.println("Adding key "+ key+" to the bst.");
+        bst.insert(bst.root,key);
+        System.out.println("In-order Traversal after insertion is : ");
+        bst.inOrderDFS(bst.root);
     }
 }
 class Node{
@@ -60,6 +66,22 @@ class BST{
         System.out.print(node.data+" ");
         //recursively go to the right subtree
         inOrderDFS(node.right);
+    }
+    Node insert(Node node,int key){
+        //adds a new node with a given key in the bst
+        if(node==null){//inserts the key into the node if the node is null
+            node=new Node(key);
+            return node;
+        }
+        if(key<node.data){//checks if the key is lesser that the nodes data and if it is calls the insert func.
+            //recursively on the left node of the current node
+            node.left=(insert(node.left,key));
+        }
+        if(key>node.data){//checks if the key is greater that the nodes data and if it is calls the insert func.
+            //recursively on the right node of the current node
+            node.right=insert(node.right,key);
+        }
+        return node;
     }
 
     boolean search(Node node,int key){
