@@ -1,6 +1,6 @@
 package BInarySearchTree;
 
-public class searchBST {
+public class baseBST {
     public static void main(String[] args){
         BST bst=new BST();
         bst.root=new Node(4);
