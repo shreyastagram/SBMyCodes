@@ -1,4 +1,4 @@
-package BinaryTree;
+package Hashing;
 class Node {
         int data;
         Node left, right;
