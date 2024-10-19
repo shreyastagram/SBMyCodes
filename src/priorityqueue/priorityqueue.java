@@ -1,3 +1,5 @@
+package priorityqueue;
+
 import java.util.*;
 import java.util.Scanner;
 public class priorityqueue {
