@@ -15,30 +15,23 @@ public class sumPthQthElem {
 
     public static int sumBetweenPthToQthSmallestElement(int[] arr,int p,int q){
         PriorityQueue<Integer> minHeap=new PriorityQueue<>();
-        int first;
-        int second;
-        if(p<q){
-            first=p-1;
-            second=q-1;
-        }
-        else{
-            first=q-1;
-            second=p-1;
-        }
+
+        //ensure p is smaller index
+        int first=Math.min(p,q);
+        int second=Math.max(p,q);
+
 
         for(int j:arr){
-            minHeap.add(arr[j]);
+            minHeap.add(j);
         }
-        int addition=0;
-        for(int i=0;i<arr.length;i++){
-            int elem=minHeap.poll();
-            if(i==first){
-                addition=elem;
-            }
-            if(i==second){
-                addition=elem+addition;
+
+        int sum=0;
+        for(int i=1;i<=second;i++){
+            int current=minHeap.poll();
+            if(i>first && i<second){
+                sum+=current;
             }
         }
-        return addition;
+        return sum;
     }
 }
